@@ -1,77 +1,23 @@
 import time
-import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-base_uri = "http://127.0.0.1:8000/"
-
-
-# Abfrage 1
-def abfrage1():
-    try:
-        res = requests.get(base_uri + "analytics/MedicationPatient",
-                           params={"medication_id": "111355001"})
-        print(res.content)
-        return res
-    except ConnectionError as ce:
-        print(
-            f"Error connecting to the FHIR Server - Please check: {base_uri}", ce)
-    except Exception as e:
-        print(f"Unexpected error while sending a request - log: {e}")
-
-
-def abfrage2():
-    try:
-        res = requests.get(base_uri + "analytics/PatientOrganizationContact",
-                           params={"patient_id": "451254", "organization_id": "5034"})
-        print(res.content)
-        return res
-    except ConnectionError as ce:
-        print(
-            f"Error connecting to the FHIR Server - Please check: {base_uri}", ce)
-    except Exception as e:
-        print(f"Unexpected error while sending a request - log: {e}")
-
-
-def abfrage3():
-    try:
-        res = requests.get(base_uri + "analytics/EncounterTimespan",
-                           params={"start": "2023-01-01", "end": "2023-12-31"})
-        print(res.content)
-        return res
-    except ConnectionError as ce:
-        print(
-            f"Error connecting to the FHIR Server - Please check: {base_uri}", ce)
-    except Exception as e:
-        print(f"Unexpected error while sending a request - log: {e}")
-
-
-def abfrage4():
-    try:
-        res = requests.get(base_uri + "analytics/MedicationManufacturer",
-                           params={"medication_code": "111355001", "manufacturer_id": "4947"})
-        print(res.content)
-        return res
-    except ConnectionError as ce:
-        print(
-            f"Error connecting to the FHIR Server - Please check: {base_uri}", ce)
-    except Exception as e:
-        print(f"Unexpected error while sending a request - log: {e}")
-
+from Abfragen.fhir_analytics import olap_abfrage1, olap_abfrage2, olap_abfrage3, olap_abfrage4
+from Abfragen.hapi_fhir_server import oltp_abfrage1, oltp_abfrage2, oltp_abfrage3, oltp_abfrage4
 
 if __name__ == '__main__':
     # Liste zur Speicherung der Laufzeiten
     times = []
 
-    # 6 API-Abfragen durchführen und die Laufzeiten messen
+    # API-Abfragen durchführen und die Laufzeiten messen
     for i in range(30):
         start_time = time.time()
-        response = abfrage1()
+        response = oltp_abfrage1()  # Ersetzen durch die gewünschte Abfrage
         end_time = time.time()
 
         # Laufzeit in Sekunden berechnen
-        elapsed_time = end_time - start_time
+        elapsed_time = (end_time - start_time)
         times.append(elapsed_time)
 
     # Daten in ein Pandas DataFrame übertragen
@@ -89,7 +35,7 @@ if __name__ == '__main__':
 
     # Boxplot der Laufzeiten erstellen
     sns.boxplot(data=df, y="Response Time")
-    plt.title("FHIRAnalytics Antwortzeiten")
+    plt.title("HAPI FHIR Server Antwortzeiten")
     plt.ylabel("Zeit in Sekunden")
     plt.show()
 
