@@ -3,6 +3,7 @@ import requests
 base_uri = "http://localhost:8080/fhir/"
 headers = {'Connection': 'close'}
 
+
 def oltp_abfrage1():
     try:
         patient_ids = []
@@ -37,7 +38,7 @@ def oltp_abfrage2():
         patient_ids = []
         encounter_ids = []
         res = requests.get(base_uri + "/Encounter",
-                           params={"service-provider": "1005514",
+                           params={"service-provider": "1258458",
                                    "_count": "1000000"},
                            headers=headers)
         encounter = res.json()

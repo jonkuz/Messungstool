@@ -1,9 +1,7 @@
 # Messungstool
-In diesem Skript werden acht Abfragen implementiert, vier für die OLTP- und vier für die OLAP-Umgebung.
-Die Abfragen können 30x aufgerufen werden.
-Die Zeiten werden gespeichert.
-Danach werden Median, Mittelwert und Standardabweichung berechnet und ausgegeben.
-Zum Schluss werden die Daten in einem Boxplot visualisiert.
+Das vorliegende Skript beinhaltet die Implementierung von insgesamt acht Abfragen, vier für die OLTP- und vier für die OLAP-Umgebung.
+Die Abfragen können bis zu 30-mal aufgerufen werden, wobei die jeweiligen Zeiten gespeichert werden. Im Anschluss erfolgt die Berechnung und Ausgabe von Median, Mittelwert und Standardabweichung.
+Schließlich werden die Daten in Form eines Boxplots visualisiert.
 
 ## Voraussetzungen
 - Python Version 3.11.0 installiert
@@ -28,8 +26,9 @@ git clone https://github.com/jonkuz/Messungstool.git
 ## Ausführen des Skriptes
 Um die API auszuführen, muss in der main-Methode die gewünschte Abfrage angegeben werden.
 Die Methoden sind bereits importiert.
-Danach werden Median, Mittelwert und Standardabweichung auf der Konsole ausgegeben.
-Das Boxplot wird in einem separaten Tab generiert.
+Im Anschluss werden Median, Mittelwert und Standardabweichung auf der Konsole ausgegeben.
+Das Boxplot wird in einem separaten Tab generiert. 
+Mit einem Rechtsklick auf die Vorschau kann das Bild als Datei gespeichert werden.
 
 
 
