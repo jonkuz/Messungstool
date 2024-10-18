@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # API-Abfragen durchführen und die Laufzeiten messen
     for i in range(30):
         start_time = time.time()
-        response = oltp_abfrage1()  # Ersetzen durch die gewünschte Abfrage
+        response = oltp_abfrage2()  # Ersetzen durch die gewünschte Abfrage
         end_time = time.time()
 
         # Laufzeit in Sekunden berechnen

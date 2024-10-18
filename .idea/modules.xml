@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FHIRAnalyticsTests.iml" filepath="$PROJECT_DIR$/.idea/FHIRAnalyticsTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Messungstool.iml" filepath="$PROJECT_DIR$/.idea/Messungstool.iml" />
     </modules>
   </component>
 </project>
