@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # API-Abfragen durchführen und die Laufzeiten messen
     for i in range(30):
         start_time = time.time()
-        response = oltp_abfrage3()  # Ersetzen durch die gewünschte Abfrage
+        response = oltp_abfrage1()  # Ersetzen durch die gewünschte Abfrage
         end_time = time.time()
 
         # Laufzeit in Sekunden berechnen
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     # Boxplot der Laufzeiten erstellen
     sns.boxplot(data=df, y="Response Time")
-    plt.title("HAPI FHIR Server Antwortzeiten")
+    plt.title("API Antwortzeiten")  # Titel anpassen, je nach Abfrage
     plt.ylabel("Zeit in Sekunden")
     plt.show()
 

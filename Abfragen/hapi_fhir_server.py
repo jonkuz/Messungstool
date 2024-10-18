@@ -122,6 +122,7 @@ def oltp_abfrage4():
                 e_id = entry['resource']['id']
                 medication_statement_ids.append(e_id)
 
+        print('request successful')
         return medication_statement_ids
     except ConnectionError as ce:
         print(
